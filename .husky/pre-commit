@@ -22,26 +22,26 @@ for file in $CHANGED_FILES; do
   fi
 done
 
-# 변경된 부분에 따라 빌드 및 테스트 실행
+# 변경된 부분에 따라 린트, 빌드 및 테스트 실행
 if [ "$FRONTEND_CHANGED" = true ]; then
-  echo "🔍 프론트엔드 변경 감지: 빌드 및 테스트 실행 중..."
-  cd frontend && npm run build && npm test
+  echo "🔍 프론트엔드 변경 감지: 린트, 빌드 및 테스트 실행 중..."
+  cd frontend && npm run lint && npm run build && npm test
   if [ $? -ne 0 ]; then
-    echo "❌ 프론트엔드 빌드 또는 테스트 실패"
+    echo "❌ 프론트엔드 린트, 빌드 또는 테스트 실패"
     exit 1
   fi
-  echo "✅ 프론트엔드 빌드 및 테스트 성공"
+  echo "✅ 프론트엔드 린트, 빌드 및 테스트 성공"
   cd ..
 fi
 
 if [ "$BACKEND_CHANGED" = true ]; then
-  echo "🔍 백엔드 변경 감지: 빌드 및 테스트 실행 중..."
-  cd backend && npm run build && npm test
+  echo "🔍 백엔드 변경 감지: 린트, 빌드 및 테스트 실행 중..."
+  cd backend && npm run lint && npm run build && npm test
   if [ $? -ne 0 ]; then
-    echo "❌ 백엔드 빌드 또는 테스트 실패"
+    echo "❌ 백엔드 린트, 빌드 또는 테스트 실패"
     exit 1
   fi
-  echo "✅ 백엔드 빌드 및 테스트 성공"
+  echo "✅ 백엔드 린트, 빌드 및 테스트 성공"
   cd ..
 fi
 

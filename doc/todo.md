@@ -6,7 +6,7 @@
   - [x] 📂 frontend/backend 디렉토리 생성
   - [x] ⚙️ 프로젝트 설정 파일 구성
 - [x] 📝 TypeScript 설정
-- [ ] 🧹 ESLint, Prettier 설정
+- [x] 🧹 ESLint, Prettier 설정
 - [x] 🔄 GitHub Actions CI/CD 파이프라인 설정
 
 ## 💻 2. 프론트엔드 (React)
@@ -58,6 +58,17 @@
   - [x] 📡 API 엔드포인트 문서화
   - [x] 🚀 배포 가이드 작성
 
+## 테라폼 마이그레이션 작업
+
+- [x] AWS CDK 기반 인프라를 테라폼으로 마이그레이션
+- [x] 테라폼 `main.tf` 파일 작성 (DynamoDB, Lambda, API Gateway 리소스)
+- [x] 테라폼 `variables.tf` 파일 작성
+- [x] 테라폼 `outputs.tf` 파일 작성
+- [x] Lambda 함수 패키징 스크립트 작성
+- [x] 테라폼 문서 작성
+- [ ] 테라폼 배포 테스트
+- [ ] CI/CD 파이프라인에 테라폼 통합
+
 ## 🔗 4. 프론트엔드-백엔드 통합
 - [ ] 🔄 목업 API를 실제 API로 교체
 - [ ] 🛡️ API 에러 처리 구현
@@ -91,6 +102,14 @@
 - [ ] 🔍 프론트엔드 에러 트래킹 설정
 - [ ] 📝 CloudWatch 로그 설정
 - [ ] 🔔 알람 설정
+
+## 🔒 9. 보안 및 규정 준수
+- [x] 📋 K-ISMS 규정 준수 요구사항 분석
+- [x] 🔄 AWS Config 규칙과 K-ISMS 통제 항목 매핑
+- [ ] 🏗️ AWS Control Tower 랜딩 존 설계
+- [ ] 🔐 보안 통제 구현
+- [ ] 📊 규정 준수 대시보드 구축
+- [ ] 📝 보안 정책 문서화
 
 ## 🔄 진행 중인 작업
 

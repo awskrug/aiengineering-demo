@@ -15,7 +15,9 @@ AWS 서버리스 아키텍처를 활용한 현대적인 TODO 애플리케이션�
 - [작업 목록](doc/todo.md) - 개발 진행 상황 및 할 일 목록
 - [데모 시나리오](doc/demo_scenario.md) - AI 엔지니어링 데모 진행 과정
 - [보안 규정 준수](doc/compliance.md) - K-ISMS 요구사항 매핑
+- [K-ISMS AWS 매핑](doc/k-isms-aws-mapping.md) - K-ISMS 규정과 AWS Config 규칙 매핑
 - [피어 리뷰](doc/peer_review.md) - 개발자 분석 및 개선 제안
+- [테라폼 템플릿](terraform/README.md) - AWS 인프라 테라폼 템플릿
 
 ## ✨ 주요 기능
 

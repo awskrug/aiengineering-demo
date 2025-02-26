@@ -170,3 +170,92 @@ Table: TodoItems
 3. 의존성 설치
 4. 프로덕션 빌드
 5. GitHub Pages 배포
+
+## 11. 보안 및 규정 준수
+
+### 11.1 K-ISMS 규정 준수
+- [K-ISMS AWS 매핑](k-isms-aws-mapping.md) 문서에 따른 보안 통제 구현
+- AWS Config 규칙을 활용한 지속적인 규정 준수 모니터링
+- AWS Control Tower를 통한 중앙 집중식 보안 관리
+
+### 11.2 AWS Control Tower 구성
+- 조직 단위(OU) 설계 및 구성
+- 가드레일 설정
+- 계정 프로비저닝 자동화
+- 규정 준수 대시보드 구축
+
+### 11.3 보안 모니터링 및 감사
+- AWS Security Hub 통합
+- 규정 준수 보고서 자동화
+- 보안 이벤트 알림 구성
+- 정기적인 보안 평가 프로세스
+
+## 12. 테라폼 인프라 설계
+
+### 12.1 개요
+
+AWS CDK에서 테라폼으로 마이그레이션하여 인프라를 코드로 관리하는 IaC(Infrastructure as Code) 접근 방식을 구현했습니다. 테라폼은 멀티 클라우드 환경을 지원하고 선언적 구성을 통해 인프라를 관리할 수 있는 도구입니다.
+
+### 12.2 테라폼 구성 요소
+
+#### 12.2.1 리소스 구성
+
+- **DynamoDB 테이블**: TODO 항목을 저장하는 NoSQL 데이터베이스
+  - 파티션 키: `id` (문자열)
+  - 읽기/쓰기 용량: 온디맨드 모드
+  - 자동 확장 설정
+
+- **Lambda 함수**: API 요청을 처리하는 서버리스 함수
+  - 런타임: Node.js 18.x
+  - 메모리: 512MB
+  - 타임아웃: 10초
+  - 환경 변수: 테이블 이름, 로그 레벨 등
+
+- **API Gateway**: REST API 엔드포인트 제공
+  - 엔드포인트: GET, POST, PUT, DELETE
+  - CORS 설정
+  - API 키 관리
+
+- **IAM 역할 및 정책**: 최소 권한 원칙 적용
+  - Lambda 실행 역할
+  - DynamoDB 접근 정책
+
+#### 12.2.2 파일 구조
+
+```
+terraform/
+├── main.tf           # 주요 리소스 정의
+├── variables.tf      # 변수 정의
+├── outputs.tf        # 출력 변수
+├── package_lambda.sh # Lambda 패키징 스크립트
+└── README.md         # 문서
+```
+
+### 12.3 배포 워크플로우
+
+1. Lambda 함수 코드 패키징
+2. 테라폼 초기화 (`terraform init`)
+3. 배포 계획 검토 (`terraform plan`)
+4. 인프라 배포 (`terraform apply`)
+5. 출력 값 확인 (API Gateway URL 등)
+
+### 12.4 보안 고려사항
+
+- IAM 역할에 최소 권한 적용
+- API Gateway에 적절한 인증 및 권한 부여 설정
+- 민감한 정보는 AWS Secrets Manager 또는 Parameter Store 사용
+- 모든 데이터 전송 및 저장 시 암호화 적용
+
+### 12.5 확장성 및 유지보수
+
+- 모듈화된 테라폼 코드로 재사용성 향상
+- 환경별 변수 파일 분리 (dev, staging, prod)
+- 상태 파일 원격 저장 (S3 + DynamoDB)
+- 버전 관리 및 변경 이력 추적
+
+### 12.6 향후 개선 사항
+
+- 테라폼 모듈화 개선
+- 멀티 리전 배포 지원
+- 재해 복구 전략 구현
+- CI/CD 파이프라인 통합
