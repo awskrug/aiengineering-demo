@@ -1,0 +1,27 @@
+{
+  "name": "aiengineering-demo",
+  "version": "1.0.0",
+  "description": "AI 엔지니어링 데모 프로젝트",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "test:frontend": "cd frontend && npm test",
+    "test:backend": "cd backend && npm test",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "lint-staged": {
+    "frontend/**/*.{js,jsx,ts,tsx}": [
+      "npm run build:frontend",
+      "npm run test:frontend"
+    ],
+    "backend/**/*.{js,ts}": [
+      "npm run build:backend",
+      "npm run test:backend"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 변경된 파일 확인
+CHANGED_FILES=$(git diff --cached --name-only)
+
+# 프론트엔드 변경 확인
+FRONTEND_CHANGED=false
+for file in $CHANGED_FILES; do
+  if [[ $file == frontend/* ]]; then
+    FRONTEND_CHANGED=true
+    break
+  fi
+done
+
+# 백엔드 변경 확인
+BACKEND_CHANGED=false
+for file in $CHANGED_FILES; do
+  if [[ $file == backend/* ]]; then
+    BACKEND_CHANGED=true
+    break
+  fi
+done
+
+# 변경된 부분에 따라 빌드 및 테스트 실행
+if [ "$FRONTEND_CHANGED" = true ]; then
+  echo "🔍 프론트엔드 변경 감지: 빌드 및 테스트 실행 중..."
+  cd frontend && npm run build && npm test
+  if [ $? -ne 0 ]; then
+    echo "❌ 프론트엔드 빌드 또는 테스트 실패"
+    exit 1
+  fi
+  echo "✅ 프론트엔드 빌드 및 테스트 성공"
+  cd ..
+fi
+
+if [ "$BACKEND_CHANGED" = true ]; then
+  echo "🔍 백엔드 변경 감지: 빌드 및 테스트 실행 중..."
+  cd backend && npm run build && npm test
+  if [ $? -ne 0 ]; then
+    echo "❌ 백엔드 빌드 또는 테스트 실패"
+    exit 1
+  fi
+  echo "✅ 백엔드 빌드 및 테스트 성공"
+  cd ..
+fi
+
+# lint-staged 실행 (추가적인 린팅 작업이 필요한 경우)
+npx lint-staged
