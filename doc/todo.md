@@ -45,14 +45,18 @@
 - [ ] 접근성 개선
 
 ## 3. 백엔드 인프라 (CDK)
-- [ ] CDK 프로젝트 초기화
-- [ ] DynamoDB 테이블 정의
-- [ ] Lambda 함수 생성
-  - [ ] TODO CRUD 함수
-- [ ] API Gateway 설정
-  - [ ] REST API 엔드포인트 설정
-  - [ ] CORS 설정
-- [ ] 환경 변수 및 시크릿 관리
+- [x] CDK 프로젝트 초기화
+- [x] DynamoDB 테이블 정의
+- [x] Lambda 함수 생성
+  - [x] TODO CRUD 함수
+- [x] API Gateway 설정
+  - [x] REST API 엔드포인트 구성
+  - [x] CORS 설정
+- [x] IAM 권한 설정
+- [x] 백엔드 문서화
+  - [x] 인프라 아키텍처 문서 작성
+  - [x] API 엔드포인트 문서화
+  - [x] 배포 가이드 작성
 
 ## 4. 프론트엔드-백엔드 통합
 - [ ] 목업 API를 실제 API로 교체
