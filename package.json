@@ -10,7 +10,9 @@
     "build:frontend": "cd frontend && npm run build",
     "build:backend": "cd backend && npm run build",
     "lint:frontend": "cd frontend && npm run lint",
-    "lint:backend": "cd backend && npm run lint"
+    "lint:backend": "cd backend && npm run lint",
+    "lint:fix:frontend": "cd frontend && npm run lint:fix",
+    "lint:fix:backend": "cd backend && npm run lint:fix"
   },
   "devDependencies": {
     "husky": "^8.0.3",
@@ -18,12 +20,12 @@
   },
   "lint-staged": {
     "frontend/**/*.{js,jsx,ts,tsx}": [
-      "npm run lint:frontend",
+      "npm run lint:fix:frontend",
       "npm run build:frontend",
       "npm run test:frontend"
     ],
     "backend/**/*.{js,ts}": [
-      "npm run lint:backend",
+      "npm run lint:fix:backend",
       "npm run build:backend",
       "npm run test:backend"
     ]

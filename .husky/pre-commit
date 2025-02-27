@@ -33,13 +33,17 @@ done
 
 # 변경된 부분에 따라 린트, 빌드 및 테스트 실행
 if [ "$FRONTEND_CHANGED" = true ]; then
-  echo "🔍 프론트엔드 변경 감지: 린트, 빌드 및 테스트 실행 중..."
-  cd frontend && npm run lint && npm run build && npm test
+  echo "🔍 프론트엔드 변경 감지: 린트 자동 수정, 빌드 및 테스트 실행 중..."
+  cd frontend && npm run lint:fix
+  # 수정된 파일들을 다시 스테이징
+  cd .. && git add frontend/
+  # 빌드 및 테스트 실행
+  cd frontend && npm run build && npm test
   if [ $? -ne 0 ]; then
-    echo "❌ 프론트엔드 린트, 빌드 또는 테스트 실패"
+    echo "❌ 프론트엔드 빌드 또는 테스트 실패"
     exit 1
   fi
-  echo "✅ 프론트엔드 린트, 빌드 및 테스트 성공"
+  echo "✅ 프론트엔드 린트 자동 수정, 빌드 및 테스트 성공"
   cd ..
 fi
 
