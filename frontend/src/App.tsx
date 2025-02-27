@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { CssBaseline, ThemeProvider, IconButton, Box } from '@mui/material'
-import { Brightness4, Brightness7 } from '@mui/icons-material'
-import { TodoPage } from './pages/TodoPage'
-import { lightTheme, darkTheme } from './theme'
+import { useState, useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { CssBaseline, ThemeProvider, IconButton, Box } from '@mui/material';
+import { Brightness4, Brightness7 } from '@mui/icons-material';
+import { TodoPage } from './pages/TodoPage';
+import { lightTheme, darkTheme } from './theme';
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem('darkMode')
-    return saved ? JSON.parse(saved) : false
-  })
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : false;
+  });
 
   useEffect(() => {
-    localStorage.setItem('darkMode', JSON.stringify(isDarkMode))
-  }, [isDarkMode])
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -29,7 +29,7 @@ function App() {
         <TodoPage />
       </ThemeProvider>
     </QueryClientProvider>
-  )
+  );
 }
 
-export default App
+export default App;

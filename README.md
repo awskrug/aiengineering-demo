@@ -6,11 +6,14 @@
 
 AWS 서버리스 아키텍처를 활용한 현대적인 TODO 애플리케이션입니다. 이 프로젝트는 [2025년 1월 22일 있었던 AWS Korea User Group의 AI 엔지니어링 모임](https://www.meetup.com/awskrug/events/305372486/?slug=awskrug&eventId=305372486)에서 진행한 발표 내용의 일부로 라이브 코딩을 통해 제작되었습니다.
 
-🔗 [데모 애플리케이션](https://awskrug.github.io/aiengineering-demo/) - 시간 관계상 프론트만 배포했습니다
+🔗 [데몸 애플리케이션](https://awskrug.github.io/aiengineering-demo/) - 시간 관계상 프론트만 배포했습니다
 
 ## 📚 프로젝트 문서
 
-- [발표장표: CDD가 온다](https://bit.ly/3DRyxNA)
+- 발표장표
+  - [CDD가 온다](https://bit.ly/3DRyxNA)
+  - [AI를 사용한 인프라 자판기](https://bit.ly/3CY8ogd)
+
 - [설계 문서](doc/design.md) - 프로젝트 아키텍처 및 기술 스택
 - [작업 목록](doc/todo.md) - 개발 진행 상황 및 할 일 목록
 - [데모 시나리오](doc/demo_scenario.md) - AI 엔지니어링 데모 진행 과정
@@ -248,6 +251,7 @@ gitGraph
 ## 👥 만든 사람들
 
 - AWS Korea User Group AI Engineering 소모임
+- AWS Korea User Group Platform Engineering 소모임
 
 ## 💬 문의하기
 

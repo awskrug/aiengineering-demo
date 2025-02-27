@@ -1,0 +1,84 @@
+# Node.js 관련
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.pnpm-debug.log
+.npm
+.yarn
+
+# 빌드 산출물
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+.cache/
+coverage/
+
+# 테라폼 관련
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+.terraform.lock.hcl
+
+# AWS CDK 관련
+.cdk.staging/
+cdk.out/
+
+# 환경 변수 및 비밀
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# 로그 파일
+logs/
+*.log
+
+# 운영체제 관련
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.directory
+
+# IDE 및 에디터 관련
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# 임시 파일
+*.tmp
+*.bak
+*.backup
+*.swp
+.temp/
+tmp/
+
+# 기타
+.vercel
+.serverless/
+.fusebox/
+.dynamodb/

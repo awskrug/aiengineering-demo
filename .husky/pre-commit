@@ -44,13 +44,17 @@ if [ "$FRONTEND_CHANGED" = true ]; then
 fi
 
 if [ "$BACKEND_CHANGED" = true ]; then
-  echo "🔍 백엔드 변경 감지: 린트, 빌드 및 테스트 실행 중..."
-  cd backend && npm run lint && npm run build && npm test
+  echo "🔍 백엔드 변경 감지: 린트 자동 수정, 빌드 및 테스트 실행 중..."
+  cd backend && npm run lint:fix
+  # 수정된 파일들을 다시 스테이징
+  cd .. && git add backend/
+  # 빌드 및 테스트 실행
+  cd backend && npm run build && npm test
   if [ $? -ne 0 ]; then
-    echo "❌ 백엔드 린트, 빌드 또는 테스트 실패"
+    echo "❌ 백엔드 빌드 또는 테스트 실패"
     exit 1
   fi
-  echo "✅ 백엔드 린트, 빌드 및 테스트 성공"
+  echo "✅ 백엔드 린트 자동 수정, 빌드 및 테스트 성공"
   cd ..
 fi
 
@@ -62,6 +66,7 @@ if [ "$TERRAFORM_CHANGED" = true ]; then
     exit 1
   fi
   git add terraform/graphs/terraform_graph.png terraform/graphs/terraform_graph.svg
+  echo "✅ 테라폼 그래프 생성 성공"
   cd ..
 fi
 

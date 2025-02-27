@@ -26,79 +26,107 @@ export const handler = async (
 
     // API 엔드포인트 처리
     switch (`${httpMethod} ${resource}`) {
-      case 'GET /todos':
-        const todos = await todoService.getTodos();
-        return {
-          statusCode: 200,
-          headers,
-          body: JSON.stringify(todos),
-        };
+    case 'GET /todos': {
+      const todos = await todoService.getTodos();
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify(todos),
+      };
+    }
 
-      case 'GET /todos/{id}':
-        const todo = await todoService.getTodo(pathParameters?.id!);
-        if (!todo) {
-          return {
-            statusCode: 404,
-            headers,
-            body: JSON.stringify({ message: 'Todo not found' }),
-          };
-        }
-        return {
-          statusCode: 200,
-          headers,
-          body: JSON.stringify(todo),
-        };
-
-      case 'POST /todos':
-        const newTodo = await todoService.createTodo(JSON.parse(body!));
-        return {
-          statusCode: 201,
-          headers,
-          body: JSON.stringify(newTodo),
-        };
-
-      case 'PUT /todos/{id}':
-        const updatedTodo = await todoService.updateTodo(
-          pathParameters?.id!,
-          JSON.parse(body!)
-        );
-        if (!updatedTodo) {
-          return {
-            statusCode: 404,
-            headers,
-            body: JSON.stringify({ message: 'Todo not found' }),
-          };
-        }
-        return {
-          statusCode: 200,
-          headers,
-          body: JSON.stringify(updatedTodo),
-        };
-
-      case 'DELETE /todos/{id}':
-        const deleted = await todoService.deleteTodo(pathParameters?.id!);
-        if (!deleted) {
-          return {
-            statusCode: 404,
-            headers,
-            body: JSON.stringify({ message: 'Todo not found' }),
-          };
-        }
-        return {
-          statusCode: 204,
-          headers,
-          body: '',
-        };
-
-      default:
+    case 'GET /todos/{id}': {
+      const id = pathParameters?.id || '';
+      const todo = await todoService.getTodo(id);
+      if (!todo) {
         return {
           statusCode: 404,
           headers,
-          body: JSON.stringify({ message: 'Not found' }),
+          body: JSON.stringify({ message: 'Todo not found' }),
         };
+      }
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify(todo),
+      };
     }
-  } catch (error) {
-    console.error('Error:', error);
+
+    case 'POST /todos': {
+      if (!body) {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ message: 'Missing request body' }),
+        };
+      }
+      const newTodo = await todoService.createTodo(JSON.parse(body));
+      return {
+        statusCode: 201,
+        headers,
+        body: JSON.stringify(newTodo),
+      };
+    }
+
+    case 'PUT /todos/{id}': {
+      if (!body || !pathParameters?.id) {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ message: 'Missing request body or ID' }),
+        };
+      }
+      const updatedTodo = await todoService.updateTodo(
+        pathParameters.id,
+        JSON.parse(body)
+      );
+      if (!updatedTodo) {
+        return {
+          statusCode: 404,
+          headers,
+          body: JSON.stringify({ message: 'Todo not found' }),
+        };
+      }
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify(updatedTodo),
+      };
+    }
+
+    case 'DELETE /todos/{id}': {
+      if (!pathParameters?.id) {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ message: 'Missing ID' }),
+        };
+      }
+      const deleted = await todoService.deleteTodo(pathParameters.id);
+      if (!deleted) {
+        return {
+          statusCode: 404,
+          headers,
+          body: JSON.stringify({ message: 'Todo not found' }),
+        };
+      }
+      return {
+        statusCode: 204,
+        headers,
+        body: '',
+      };
+    }
+
+    default: {
+      return {
+        statusCode: 404,
+        headers,
+        body: JSON.stringify({ message: 'Not found' }),
+      };
+    }
+    }
+  } catch {
+    // 로깅은 CloudWatch에서 처리됨
     return {
       statusCode: 500,
       headers: {

@@ -3,7 +3,6 @@ import {
   DynamoDBDocumentClient,
   GetCommand,
   PutCommand,
-  QueryCommand,
   DeleteCommand,
   ScanCommand,
 } from '@aws-sdk/lib-dynamodb';
@@ -11,7 +10,7 @@ import { CreateTodoInput, Todo, UpdateTodoInput } from './types';
 
 const ddbClient = new DynamoDBClient({});
 const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
-const TableName = process.env.TODO_TABLE_NAME!;
+const TableName = process.env.TODO_TABLE_NAME || 'TodoTable';
 
 export const todoService = {
   async getTodos(): Promise<Todo[]> {
