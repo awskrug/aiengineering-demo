@@ -2,7 +2,7 @@
 
 [![License: CC BY-SA 4.0 KR](https://img.shields.io/badge/License-CC%20BY--SA%204.0%20KR-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/deed.ko)
 [![GitHub stars](https://img.shields.io/github/stars/awskrug/aiengineering-demo)](https://github.com/awskrug/aiengineering-demo/stargazers)
-[![デプロイ状態](https://github.com/awskrug/aiengineering-demo/actions/workflows/frontend-deploy.yml/badge.svg)](https://todo.awskrug.dev)
+[![デプロイ状態](https://github.com/awskrug/aiengineering-demo/actions/workflows/frontend-deploy.yml/badge.svg)](https://github.com/awskrug/aiengineering-demo/actions/workflows/frontend-deploy.yml)
 
 AWS サーバーレスアーキテクチャを活用した現代的な TODO アプリケーションです。このプロジェクトは [2025年1月22日に開催された AWS Korea User Groupの AI エンジニアリングミートアップ](https://www.meetup.com/awskrug/events/305372486/?slug=awskrug&eventId=305372486)での発表内容の一部として、ライブコーディングを通じて制作されました。
 
