@@ -439,3 +439,13 @@ README.md의 시스템 아키텍처를 mermaid로 바꿔줘.
 - 생성된 리소스 검증
 - API Gateway, Lambda, DynamoDB 리소스 확인
 - 배포된 인프라 테스트
+
+### 18.2 Git Hook 개선
+```
+프론트도 lint:fix 스크립트를 만들고 깃 훅에 추가해줘.
+```
+- 프론트엔드 package.json에 lint:fix 스크립트 추가
+- 루트 package.json에 lint:fix:frontend 및 lint:fix:backend 스크립트 추가
+- pre-commit 훅 수정으로 프론트엔드 코드 변경 시 자동 린트 수정 적용
+- lint-staged 설정 업데이트로 커밋 시 자동 린트 수정 실행
+- 변경된 파일 자동 스테이징 로직 개선
