@@ -113,6 +113,25 @@
 - [ ] 📊 규정 준수 대시보드 구축
 - [ ] 📝 보안 정책 문서화
 
+## 📚 10. 다국어 문서화
+- [x] 📋 다국어 문서화 계획 수립
+  - [x] 📂 일본어 문서 디렉토리 생성 (doc/ja)
+  - [x] 📝 번역 작업 목록 작성 (doc/ja/translation_tasks.md)
+- [x] 📄 메인 문서 번역
+  - [x] 📝 README.md → README.ja.md
+  - [x] 📝 doc/design.md → doc/ja/design.md
+  - [x] 📝 doc/todo.md → doc/ja/todo.md
+- [ ] 📄 추가 문서 번역
+  - [ ] 📝 doc/demo_scenario.md → doc/ja/demo_scenario.md
+  - [ ] 📝 doc/compliance.md → doc/ja/compliance.md
+  - [ ] 📝 doc/k-isms-aws-mapping.md → doc/ja/k-isms-aws-mapping.md
+  - [ ] 📝 doc/peer_review.md → doc/ja/peer_review.md
+  - [ ] 📝 backend/README.md → backend/README.ja.md
+  - [ ] 📝 frontend/README.md → frontend/README.ja.md
+  - [ ] 📝 terraform/README.md → terraform/README.ja.md
+- [ ] 🔄 문서 간 상호 참조 링크 업데이트
+- [ ] 🧪 번역 품질 검토
+
 ## 🔄 진행 중인 작업
 
 ### 🔄 CI/CD
