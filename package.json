@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "test:frontend": "cd frontend && npm test",
+    "test:frontend": "npm test",
     "test:backend": "cd backend && npm test",
     "build:frontend": "cd frontend && npm run build",
     "build:backend": "cd backend && npm run build",
@@ -21,8 +21,8 @@
   "lint-staged": {
     "frontend/**/*.{js,jsx,ts,tsx}": [
       "npm run lint:fix:frontend",
-      "npm run build:frontend",
-      "npm run test:frontend"
+      "cd frontend && npm run build",
+      "cd frontend && npm test"
     ],
     "backend/**/*.{js,ts}": [
       "npm run lint:fix:backend",

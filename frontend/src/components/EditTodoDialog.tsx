@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Dialog,
   DialogTitle,
@@ -17,6 +18,7 @@ interface EditTodoDialogProps {
 }
 
 export function EditTodoDialog({ todo, open, onClose, onSave }: EditTodoDialogProps) {
+  const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -40,12 +42,12 @@ export function EditTodoDialog({ todo, open, onClose, onSave }: EditTodoDialogPr
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle>할 일 수정</DialogTitle>
+      <DialogTitle>{t('todo.edit')}</DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
           margin="dense"
-          label="제목"
+          label={t('form.title')}
           type="text"
           fullWidth
           value={title}
@@ -54,7 +56,7 @@ export function EditTodoDialog({ todo, open, onClose, onSave }: EditTodoDialogPr
         />
         <TextField
           margin="dense"
-          label="설명"
+          label={t('form.description')}
           type="text"
           fullWidth
           multiline
@@ -64,9 +66,9 @@ export function EditTodoDialog({ todo, open, onClose, onSave }: EditTodoDialogPr
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>취소</Button>
+        <Button onClick={onClose}>{t('form.cancel')}</Button>
         <Button onClick={handleSave} disabled={!title.trim()}>
-          저장
+          {t('form.save')}
         </Button>
       </DialogActions>
     </Dialog>

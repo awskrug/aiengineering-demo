@@ -1,4 +1,5 @@
-import { Checkbox, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { Checkbox, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
 import { Delete as DeleteIcon, Edit as EditIcon } from '@mui/icons-material';
 import { Todo } from '../types/todo';
 
@@ -10,16 +11,22 @@ interface TodoItemProps {
 }
 
 export function TodoItem({ todo, onToggle, onEdit, onDelete }: TodoItemProps) {
+  const { t } = useTranslation();
+  
   return (
     <ListItem
       secondaryAction={
         <>
-          <IconButton edge="end" aria-label="edit" onClick={() => onEdit(todo)}>
-            <EditIcon />
-          </IconButton>
-          <IconButton edge="end" aria-label="delete" onClick={() => onDelete(todo.id)}>
-            <DeleteIcon />
-          </IconButton>
+          <Tooltip title={t('todo.edit')}>
+            <IconButton edge="end" aria-label={t('todo.edit')} onClick={() => onEdit(todo)}>
+              <EditIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title={t('todo.delete')}>
+            <IconButton edge="end" aria-label={t('todo.delete')} onClick={() => onDelete(todo.id)}>
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
         </>
       }
       disablePadding

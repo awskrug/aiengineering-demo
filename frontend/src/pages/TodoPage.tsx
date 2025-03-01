@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Container,
   Typography,
@@ -23,6 +24,7 @@ type SortOrder = 'asc' | 'desc';
 type FilterStatus = 'all' | 'active' | 'completed';
 
 export function TodoPage() {
+  const { t } = useTranslation();
   const { todos, createTodo, updateTodo, deleteTodo } = useTodos();
   const [editingTodo, setEditingTodo] = useState<Todo | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -80,7 +82,7 @@ export function TodoPage() {
   if (todos.error) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
-        <Typography color="error">에러가 발생했습니다.</Typography>
+        <Typography color="error">{t('todo.error')}</Typography>
       </Box>
     );
   }
@@ -89,14 +91,14 @@ export function TodoPage() {
     <Container maxWidth="sm">
       <Box py={4}>
         <Typography variant="h4" component="h1" gutterBottom>
-          할 일 목록
+          {t('todo.title')}
         </Typography>
         
         <AddTodoForm onSubmit={(input) => createTodo.mutate(input)} />
         
         <Stack spacing={2} sx={{ mb: 2 }}>
           <TextField
-            label="검색"
+            label={t('todo.search')}
             variant="outlined"
             fullWidth
             value={searchQuery}
@@ -104,29 +106,29 @@ export function TodoPage() {
           />
           
           <FormControl fullWidth>
-            <InputLabel>상태</InputLabel>
+            <InputLabel>{t('todo.status')}</InputLabel>
             <Select
               value={filterStatus}
-              label="상태"
+              label={t('todo.status')}
               onChange={(e) => setFilterStatus(e.target.value as FilterStatus)}
             >
-              <MenuItem value="all">전체</MenuItem>
-              <MenuItem value="active">진행 중</MenuItem>
-              <MenuItem value="completed">완료</MenuItem>
+              <MenuItem value="all">{t('filter.all')}</MenuItem>
+              <MenuItem value="active">{t('filter.active')}</MenuItem>
+              <MenuItem value="completed">{t('filter.completed')}</MenuItem>
             </Select>
           </FormControl>
           
           <FormControl fullWidth>
-            <InputLabel>정렬</InputLabel>
+            <InputLabel>{t('todo.sort')}</InputLabel>
             <Select
               value={`${sortField}_${sortOrder}`}
-              label="정렬"
+              label={t('todo.sort')}
               onChange={handleSort}
             >
-              <MenuItem value="createdAt_desc">최신순</MenuItem>
-              <MenuItem value="createdAt_asc">오래된순</MenuItem>
-              <MenuItem value="title_asc">제목 오름차순</MenuItem>
-              <MenuItem value="title_desc">제목 내림차순</MenuItem>
+              <MenuItem value="createdAt_desc">{t('sort.newest')}</MenuItem>
+              <MenuItem value="createdAt_asc">{t('sort.oldest')}</MenuItem>
+              <MenuItem value="title_asc">{t('sort.titleAsc')}</MenuItem>
+              <MenuItem value="title_desc">{t('sort.titleDesc')}</MenuItem>
             </Select>
           </FormControl>
         </Stack>

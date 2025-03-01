@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, TextField, Box } from '@mui/material';
 import { CreateTodoInput } from '../types/todo';
 
@@ -7,6 +8,7 @@ interface AddTodoFormProps {
 }
 
 export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
+  const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -36,14 +38,14 @@ export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
       }}
     >
       <TextField
-        label="할 일"
+        label={t('form.title')}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
         fullWidth
       />
       <TextField
-        label="설명"
+        label={t('form.description')}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         multiline
@@ -51,7 +53,7 @@ export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
         fullWidth
       />
       <Button type="submit" variant="contained" disabled={!title.trim()}>
-        추가
+        {t('form.add')}
       </Button>
     </Box>
   );

@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "TODOアプリ",
+    "darkMode": "ダークモード",
+    "lightMode": "ライトモード"
+  },
+  "todo": {
+    "title": "TODOリスト",
+    "add": "TODOを追加",
+    "edit": "TODOを編集",
+    "delete": "削除",
+    "search": "検索",
+    "status": "状態",
+    "sort": "並べ替え",
+    "empty": "TODOがありません",
+    "error": "エラーが発生しました"
+  },
+  "form": {
+    "title": "タイトル",
+    "description": "説明",
+    "add": "追加",
+    "save": "保存",
+    "cancel": "キャンセル"
+  },
+  "filter": {
+    "all": "すべて",
+    "active": "進行中",
+    "completed": "完了"
+  },
+  "sort": {
+    "newest": "新しい順",
+    "oldest": "古い順",
+    "titleAsc": "タイトル (昇順)",
+    "titleDesc": "タイトル (降順)"
+  },
+  "language": {
+    "select": "言語",
+    "en": "英語",
+    "ko": "韓国語",
+    "ja": "日本語"
+  }
+}

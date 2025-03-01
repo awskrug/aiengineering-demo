@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "TODO App",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "todo": {
+    "title": "Todo List",
+    "add": "Add Todo",
+    "edit": "Edit Todo",
+    "delete": "Delete",
+    "search": "Search",
+    "status": "Status",
+    "sort": "Sort",
+    "empty": "No todos found",
+    "error": "An error occurred"
+  },
+  "form": {
+    "title": "Title",
+    "description": "Description",
+    "add": "Add",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "filter": {
+    "all": "All",
+    "active": "Active",
+    "completed": "Completed"
+  },
+  "sort": {
+    "newest": "Newest",
+    "oldest": "Oldest",
+    "titleAsc": "Title (A-Z)",
+    "titleDesc": "Title (Z-A)"
+  },
+  "language": {
+    "select": "Language",
+    "en": "English",
+    "ko": "Korean",
+    "ja": "Japanese"
+  }
+}

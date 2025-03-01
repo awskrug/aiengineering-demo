@@ -41,6 +41,11 @@
 ### 🎭 2.4 스타일링 및 UI/UX
 - [x] 📱 반응형 디자인 구현
 - [x] 🌓 다크 모드 지원
+- [x] 🌐 다국어 지원 (한국어, 영어, 일본어)
+  - [x] 🔤 i18next 라이브러리 설정
+  - [x] 📝 언어별 번역 파일 생성
+  - [x] 🌍 언어 선택 컴포넌트 구현
+  - [x] 🔄 컴포넌트 텍스트 다국어 처리
 - [ ] ✨ 애니메이션 효과
 - [ ] ♿ 접근성 개선
 
@@ -121,6 +126,10 @@
   - [x] 📝 README.md → README.ja.md
   - [x] 📝 doc/design.md → doc/ja/design.md
   - [x] 📝 doc/todo.md → doc/ja/todo.md
+- [x] 🌐 프론트엔드 다국어 지원 추가
+  - [x] 🔤 i18next 라이브러리 설정
+  - [x] 📝 한국어, 영어, 일본어 번역 파일 생성
+  - [x] 🌍 언어 선택 UI 구현
 - [ ] 📄 추가 문서 번역
   - [ ] 📝 doc/demo_scenario.md → doc/ja/demo_scenario.md
   - [ ] 📝 doc/compliance.md → doc/ja/compliance.md
