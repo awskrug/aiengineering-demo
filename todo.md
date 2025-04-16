@@ -1,0 +1,4 @@
+- [x] doc/demo_scenario.mdを日本語に翻訳し、doc/ja/demo_scenario.mdとして保存
+- [ ] demo_scenario.mdの翻訳をREADME.mdのドキュメント一覧に追加
+- [ ] その他の主要ドキュメント（design.md, todo.md）の翻訳状況を確認
+- [ ] 翻訳ファイル追加・更新時はREADME.mdや該当ドキュメントのリンクも更新
