@@ -46,7 +46,7 @@
 | translation_tasks.md | 完了 | AI | 2025-03-01 |
 | README.ja.md | 未着手 | - | - |
 | doc/ja/design.md | 未着手 | - | - |
-| doc/ja/todo.md | 未着手 | - | - |
+| doc/ja/todo.md | 完了 | AI | 2025-03-02 |
 | doc/ja/demo_scenario.md | 未着手 | - | - |
 | doc/ja/compliance.md | 未着手 | - | - |
 | doc/ja/k-isms-aws-mapping.md | 未着手 | - | - |
